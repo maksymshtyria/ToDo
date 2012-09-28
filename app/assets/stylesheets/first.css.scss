@@ -1,0 +1,138 @@
+// Place all the styles related to the first controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@mixin input_style {
+  width: 466px;
+  font-size: 24px;
+  font-family: inherit;
+  line-height: 1.4em;
+  border: 0;
+  outline: none;
+  padding: 6px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #EEE;
+}
+
+body {
+  position: absolute;
+  margin: auto 30% ;
+  border-style: solid ;
+  border-top: none;
+  border-color: #EEE;
+  border-radius: 0px 0px 10px 10px;
+  -webkit-box-shadow: -2px 5px 10px black;
+  min-width: 30%;
+  background-color: #EEE;
+
+  .lang{
+    cursor: pointer;
+    #ru{
+      position: absolute;
+      left: 1%;
+      top: 0%;
+    }
+    #eng{
+      position: absolute;
+      left: 5%;
+
+    }
+    #ua{
+      position: absolute;
+      left: 10%;
+
+    }
+  }
+
+
+
+  #todoapp {
+
+    header {
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+
+      #new-todo{
+        @include input_style; 
+      }
+    }
+
+    div {
+        .done{
+        color: #777777;
+        text-decoration: line-through;
+          }
+
+
+        li{
+          .edit{
+            display: none;
+          }
+          .view{
+            height: 40px;
+            position: relative;
+
+            .img{
+              position: relative;
+              display: none;
+              cursor: pointer;
+              width: 20px;
+              height: 20px;
+            }
+            #moveDown{
+              position: relative;
+              left: 50%;
+              top: -20px;
+              background: url(moveDown.png) no-repeat;     
+            }
+            #moveUp{
+              position: relative;
+              left: 55%;
+              top: -40px;
+              background: url(moveUp.png) no-repeat;
+            }
+            #destroy{
+              position: relative;
+              left: 60%;
+              top: -60px;
+              background: url(destroy.png) no-repeat;
+            }
+            
+          }
+ 
+
+        }
+
+
+
+    
+      .view-project{
+        label{
+          font-size: 24px;
+
+          pr{
+            left: 10%;
+            position: relative;
+            text-decoration: underline;
+            font-style: italic;
+          }
+        }
+        span{
+          font-style: italic;
+
+          input{
+            @include input_style;
+
+            width: 200px;
+            font-size: 14px;
+            background-color: #ffffff;  
+          }
+        }
+
+      }
+    }
+  }
+}
