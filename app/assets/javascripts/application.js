@@ -14,4 +14,13 @@
 // require jquery_ujs
 //= require underscore
 //= require backbone
+//= require /../temlates/App
+//= require app/i18n
+//= require app/models/OneTask
+//= require app/collections/TodoList
+//= require app/views/OneTask
+//= require app/views/Project
+//= require app/views/Main
+//= require app/views/OneTask
+//= require app/App
 //= require_tree .
