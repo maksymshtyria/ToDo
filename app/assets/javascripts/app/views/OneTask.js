@@ -1,4 +1,4 @@
-var oneTask =   Backbone.View.extend({
+var oneTaskView =   Backbone.View.extend({
 
     template: _.template($('#item-template').html()),
 
