@@ -1,6 +1,6 @@
-var TodoList = Backbone.Collection.extend({
+GetContext("toDo.Collections").TodoList = Backbone.Collection.extend({
         
-    model: oneTask,
+    model: toDo.Models.oneTask,
 
     url: 'localhost:3000',
 

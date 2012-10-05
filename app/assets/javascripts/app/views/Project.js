@@ -1,24 +1,23 @@
-var project = Backbone.View.extend({
+GetContext("toDo.Views").Project = Backbone.View.extend({
 
     template: JST["templates/project"],
+
+    collection: new toDo.Collections.TodoList(),
 
     events: {
         "keypress input:text":  "createOnEnter",
     },
 
     initialize: function(projName) {
-        this.collection = new  TodoList();
         this.collection.bind("add", this.addOne, this);
         //this.collection.fetch();
         langPack.project = projName.project;
-        console.log(langPack); 
         $("#todoapp").append( this.render(langPack) );
     },
 
     addOne: function (oneTask) {
-        if ( oneTask.isValid() ) {
-            var view = new oneTaskView({model: oneTask, collection: this.collection});
-            this.$el.append(view.render());
+        if ( true/*oneTask.isValid() */) {
+            this.$el.append( new toDo.Views.OneTask({model: oneTask, collection: this.collection}).render() );
         }
     },
 
@@ -28,7 +27,7 @@ var project = Backbone.View.extend({
                 title: this.$el.find('input:text').val(),
                 done: this.$el.find('input:checkbox').prop("checked"),
                 project: this.$el.find("pr").text(), 
-                order: this.collection.nextOrder()
+                order: /*this.collection.nextOrder()*/12
             });
             this.$el.find('input:text').val('');
         },

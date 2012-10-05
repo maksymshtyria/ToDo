@@ -1,4 +1,4 @@
-var oneTaskView =   Backbone.View.extend({
+GetContext("toDo.Views").OneTask = Backbone.View.extend({
 
     template: JST["templates/oneTask"],
 
