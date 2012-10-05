@@ -16,7 +16,7 @@ GetContext("toDo.Views").Project = Backbone.View.extend({
     },
 
     addOne: function (oneTask) {
-        if ( true/*oneTask.isValid() */) {
+        if ( oneTask.isValid() ) {
             this.$el.append( new toDo.Views.OneTask({model: oneTask, collection: this.collection}).render() );
         }
     },
@@ -27,7 +27,7 @@ GetContext("toDo.Views").Project = Backbone.View.extend({
                 title: this.$el.find('input:text').val(),
                 done: this.$el.find('input:checkbox').prop("checked"),
                 project: this.$el.find("pr").text(), 
-                order: /*this.collection.nextOrder()*/12
+                order: this.collection.nextOrder()
             });
             this.$el.find('input:text').val('');
         },
