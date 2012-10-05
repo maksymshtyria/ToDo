@@ -16,7 +16,7 @@ var Main = Backbone.View.extend({
        
     projectAdd: function (e) {
         if (e.keyCode != 13 || this.$el.find("#new-todo").val() == '') return;
-        var ProjectViewOBJ = new Project({project : this.$el.find("#new-todo").val() });
+        var ProjectViewOBJ = new project({project : this.$el.find("#new-todo").val() });
         this.$el.find("#new-todo").val('');
     },
 

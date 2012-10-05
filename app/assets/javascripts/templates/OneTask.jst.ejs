@@ -1,6 +1,6 @@
         <div class="view">
 
-            <input class="toggle" type="checkbox" <%= done %> />
+            <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : ''  %> />
             <label><%= title %></label>
             <div class="img" id="moveDown"></div>
             <div class="img" id="moveUp"></div>

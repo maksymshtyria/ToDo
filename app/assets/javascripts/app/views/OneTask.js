@@ -1,6 +1,6 @@
 var oneTaskView =   Backbone.View.extend({
 
-    template: _.template(JST["templates/oneTask"]()),
+    template: JST["templates/oneTask"],
 
     tagName:  "li",
 
