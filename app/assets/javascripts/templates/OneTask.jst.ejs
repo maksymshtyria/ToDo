@@ -1,11 +1,11 @@
         <div class="view">
 
-            <input class="toggle" type="checkbox" {{ done ? 'checked="checked"' : '' }} />
-            <label>{{ title }}</label>
+            <input class="toggle" type="checkbox" <%= done %> />
+            <label><%= title %></label>
             <div class="img" id="moveDown"></div>
             <div class="img" id="moveUp"></div>
             <div class="img" id="destroy"></div>
             <!--<div class="message" id="message">message</div>-->
         </div>
 
-        <input class="edit" type="text" value="{{ title }}" />
+        <input class="edit" type="text" value="<%= title %>" />

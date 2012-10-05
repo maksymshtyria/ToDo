@@ -1,3 +1,5 @@
+var langPack;
+
 localStorage.setItem("ru", JSON.stringify({header: "Чё сделать",
                                             placeholder: "Создадим новый проект?",
                                             label: "Имя проекта",
@@ -18,5 +20,3 @@ localStorage.setItem("ua", JSON.stringify({header: "Щоб його зробит
                                             task: "Завдання",
                                             placeholderProj: "Що нада зробить?",
                                             done: "Чи зробив?"}));
-
-var obj={}

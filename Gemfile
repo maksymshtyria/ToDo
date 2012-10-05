@@ -23,7 +23,7 @@ end
 gem "jquery-rails", "~> 2.1.0"
 gem 'underscore-rails'
 gem 'backbone-rails'
-gem 'sprockets', '~> 2.0'
+gem 'ejs'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,3 +1,5 @@
+$( function () {	
 	_.templateSettings = {interpolate : /\{\{(.+?)\}\}/g};
 
-	new Main();
+	$('#todoapp').append(new Main().$el);
+})

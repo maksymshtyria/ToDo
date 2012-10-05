@@ -1,6 +1,6 @@
 var Project = Backbone.View.extend({
 
-    template: _.template($('#project-template').html()),
+    template: _.template(JST["templates/project"]()),
 
     events: {
         "keypress input:text":  "createOnEnter",
