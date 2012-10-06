@@ -16,19 +16,24 @@
   background-color: #EEE;
 }
 
-body {
-  position: absolute;
-  margin: auto 30% ;
-  border-style: solid ;
-  border-top: none;
-  border-color: #EEE;
+@mixin background {
   border-radius: 0px 0px 10px 10px;
-  -webkit-box-shadow: -2px 5px 10px black;
+  -webkit-box-shadow: -2px 5px 10px #C9C6C6;
   min-width: 30%;
-  background-color: #EEE;
+  background-image: url(background.png);
+}
+
+body{
+  background-color: #F5F5FF;
+}
+
+.header {
+  @include background;
+  margin: auto 30% ;
 
   .lang{
     cursor: pointer;
+    position: relative;
     #ru{
       position: absolute;
       left: 1%;
@@ -46,19 +51,56 @@ body {
     }
   }
 
-
-
-  #todoapp {
-
     header {
-      background-color: white;
+      //background-color: white;
       padding: 20px;
       text-align: center;
+      border-radius: 0px 0px 10px 10px;
 
       #new-todo{
         @include input_style; 
       }
     }
+}
+
+.project{
+  @include background;
+  padding: 1%;
+  position: relative;
+  margin: 3% 30% ;
+  left: 100%;
+
+        label{
+          margin: auto 20%;
+          font-size: 24px;
+
+          pr{
+            left: 10%;
+            position: relative;
+            //text-decoration: underline;
+            font-style: italic;
+          }
+        }
+        span{
+          font-style: italic;
+
+          input{
+            @include input_style;
+
+            width: 200px;
+            font-size: 14px;
+            background-color: #ffffff;  
+          }
+        }
+
+        [name="destroyProject"]{
+          background-image: url(red-cross-icon.jpg);
+          width: 40px;
+          height: 30px;
+          background-size: 40px;
+        }
+}
+
 
     div {
         .done{
@@ -102,37 +144,6 @@ body {
             }
             
           }
- 
-
-        }
-
-
-
-    
-      .view-project{
-        label{
-          font-size: 24px;
-
-          pr{
-            left: 10%;
-            position: relative;
-            text-decoration: underline;
-            font-style: italic;
-          }
-        }
-        span{
-          font-style: italic;
-
-          input{
-            @include input_style;
-
-            width: 200px;
-            font-size: 14px;
-            background-color: #ffffff;  
-          }
-        }
-
-      }
-    }
-  }
 }
+}
+

@@ -1,6 +1,6 @@
 GetContext("toDo.Views").OneTask = Backbone.View.extend({
 
-    template: JST["templates/oneTask"],
+    template: JST["templates/OneTask"],
 
     tagName:  "li",
 

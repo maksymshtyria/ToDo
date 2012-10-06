@@ -1,6 +1,8 @@
 GetContext("toDo.Views").Project = Backbone.View.extend({
 
-    template: JST["templates/project"],
+    template: JST["templates/Project"],
+
+    className: 'project',
 
     collection: new toDo.Collections.TodoList(),
 
@@ -8,11 +10,12 @@ GetContext("toDo.Views").Project = Backbone.View.extend({
         "keypress input:text":  "createOnEnter",
     },
 
-    initialize: function(projName) {
+    initialize: function(options) {
         this.collection.bind("add", this.addOne, this);
+        //this.langPack = options.langPack;
         //this.collection.fetch();
-        langPack.project = projName.project;
-        $("#todoapp").append( this.render(langPack) );
+        //this.langPack.set({project: options.project});
+        //$("#todoapp").append( this.render(this.langPack.toJSON()) );
     },
 
     addOne: function (oneTask) {
@@ -32,8 +35,8 @@ GetContext("toDo.Views").Project = Backbone.View.extend({
             this.$el.find('input:text').val('');
         },
 
-    render: function (c) {
-        this.$el.html(this.template(c));
+    render: function (model) {
+        this.$el.html(this.template(model));
             return this.$el
     }
 });

@@ -1,8 +1,10 @@
 GetContext("toDo.Views").Main = Backbone.View.extend({
 
-    template: JST["templates/main"],
-        
-    $el : $("#todoapp"),
+    template: JST["templates/Main"],
+
+    langPack: new toDo.Models.langPack(),  
+
+    className: 'header',
 
     events: {
         "keypress #new-todo":  "projectAdd",
@@ -10,23 +12,28 @@ GetContext("toDo.Views").Main = Backbone.View.extend({
     },
 
     initialize: function () {
-        langPack = eval("("+localStorage.ru+")");
-        this.render();
+        this.langPack.on('change', this.render, this);
     },
        
     projectAdd: function (e) {
+        var lang, projectView;
         if (e.keyCode != 13 || this.$el.find("#new-todo").val() == '') return;
-        var ProjectViewOBJ = new toDo.Views.Project({project : this.$el.find("#new-todo").val() });
+        lang = this.langPack;
+        lang.set({project : this.$el.find("#new-todo").val()});
+
+        projectView = new toDo.Views.Project().render(lang.toJSON());
+         
+        $("[name='todoapp']").append( projectView );
+        projectView.animate({left: "0px"}, 500);
         this.$el.find("#new-todo").val('');
     },
 
     lang: function (e){
-        langPack = eval("("+localStorage.getItem(e.target.id)+")");
-        this.render();
+        this.langPack.changeLang(e.target.id);
     },
 
     render: function (){
-        this.$el.html(this.template(langPack));
+        this.$el.html(this.template(this.langPack.toJSON()));
         return this.$el;
     }
 });

@@ -16,6 +16,7 @@
 //= require backbone
 //= require_tree ./templates
 //= require app/getContext
+//= require app/models/LangPack
 //= require app/Backbone.Validation
 //= require app/i18n
 //= require app/models/OneTask
