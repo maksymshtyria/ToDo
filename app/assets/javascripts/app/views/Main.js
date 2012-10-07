@@ -7,25 +7,31 @@ GetContext("toDo.Views").Main = Backbone.View.extend({
     className: 'header',
 
     events: {
-        "keypress #new-todo":  "projectAdd",
+        "keypress #new-todo":  "_onEnterClick",
         "click .lang": "lang"
     },
 
-    initialize: function () {
+    initialize: function (data) {
         this.langPack.on('change', this.render, this);
     },
        
-    projectAdd: function (e) {
-        var lang, projectView;
+    _onEnterClick: function (e) {    
         if (e.keyCode != 13 || this.$el.find("#new-todo").val() == '') return;
+        this._projectAdd();    
+    },
+
+    _projectAdd: function (data) {
+        var lang, projectView;
+      
         lang = this.langPack;
-        lang.set({project : this.$el.find("#new-todo").val()});
+
+        lang.set({project : (this.$el.find("#new-todo").val() || data.get('project'))});
 
         projectView = new toDo.Views.Project().render(lang.toJSON());
          
         $("[name='todoapp']").append( projectView );
         projectView.animate({left: "0px"}, 500);
-        this.$el.find("#new-todo").val('');
+        this.$el.find("#new-todo").val('');  
     },
 
     lang: function (e){

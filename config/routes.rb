@@ -4,7 +4,10 @@ ToDo::Application.routes.draw do
 
   get '/test' => 'first#show'
 
-  get '/db' => 'first#test'
+  get '/getProjects' => 'first#getProjects'
+
+  post '/test' => 'first#create'
+
 
   #get :to => 'first#index'
   # The priority is based upon order of creation:

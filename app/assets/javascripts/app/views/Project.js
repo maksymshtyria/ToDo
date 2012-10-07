@@ -12,6 +12,7 @@ GetContext("toDo.Views").Project = Backbone.View.extend({
     initialize: function() {
         this.collection = new toDo.Collections.TodoList();
         this.collection.on("add", this._addOne, this);
+        this.collection.on('reset', this.collection.deleteModels, this)
     },
 
     _addOne: function (mod, coll) {

@@ -9,8 +9,21 @@ class FirstController < ApplicationController
   	end
 
   	def show
-  		render(:text => "[{'done': true, 'order': 3, 'project': 'tt', 'title': 'y'}]") and return
+  		#Todo = Todo.new(:projectID => 12, :taskID => 666, :task => 'params[:last_name]')
+  		render :json => Todo.all
+  		#render(:text => "[{'done': true, 'order': 3, 'project': 'tt', 'title': 'y'}]") and return
   		#render :json => {:done => true, :order => 3, :project: "tt", :title: "y"} and return
+  	end
+
+  	def create
+  		todoRow = Todo.new( :project => params[:project], :title => params[:title], :done => params[:done])
+  		if todoRow.save
+  			render :json => todoRow and return
+		end
+  	end
+
+  	def getProjects
+  		render :json => Todo.select(:project).uniq and return
   	end
   	#def check_session
 	 #   if session[:current_user] == nil

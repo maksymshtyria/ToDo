@@ -17,7 +17,7 @@ GetContext("toDo.Views").OneTask = Backbone.View.extend({
     initialize : function () {
         this.model.bind("change:title", this.render, this);
         this.model.bind("change:done", this.render, this);
-        //this.model.save();
+        this.model.save();
     },
         
     edit: function() {

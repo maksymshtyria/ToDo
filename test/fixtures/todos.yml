@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  id: 1
-  name: 
+  projectID: 1
+  taskID: 1
+  task: MyString
 
 two:
-  id: 1
-  name: 
+  projectID: 1
+  taskID: 1
+  task: MyString

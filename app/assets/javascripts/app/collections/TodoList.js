@@ -2,7 +2,9 @@ GetContext("toDo.Collections").TodoList = Backbone.Collection.extend({
         
     model: toDo.Models.oneTask,
 
-    url: '/test',
+    initialize: function (url) {
+    	
+    },
 
     nextOrder: function () {
         if (!this.length) return 0;
