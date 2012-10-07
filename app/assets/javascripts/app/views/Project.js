@@ -4,27 +4,23 @@ GetContext("toDo.Views").Project = Backbone.View.extend({
 
     className: 'project',
 
-    collection: new toDo.Collections.TodoList(),
-
     events: {
-        "keypress input:text":  "createOnEnter",
+        "keypress input:text":  "_createOnEnter",
+        "click [name='deleteProject']": "_deleteProject"
     },
 
-    initialize: function(options) {
-        this.collection.bind("add", this.addOne, this);
-        //this.langPack = options.langPack;
-        //this.collection.fetch();
-        //this.langPack.set({project: options.project});
-        //$("#todoapp").append( this.render(this.langPack.toJSON()) );
+    initialize: function() {
+        this.collection = new toDo.Collections.TodoList();
+        this.collection.on("add", this._addOne, this);
     },
 
-    addOne: function (oneTask) {
-        if ( oneTask.isValid() ) {
-            this.$el.append( new toDo.Views.OneTask({model: oneTask, collection: this.collection}).render() );
-        }
+    _addOne: function (mod, coll) {
+        if ( mod.isValid() ) {
+            this.$el.append( new toDo.Views.OneTask({model: mod, collection: this.collection}).render() );
+        };
     },
 
-    createOnEnter: function (e) {
+    _createOnEnter: function (e) {
         if (e.keyCode != 13 ) return;
             this.collection.add({
                 title: this.$el.find('input:text').val(),
@@ -34,6 +30,14 @@ GetContext("toDo.Views").Project = Backbone.View.extend({
             });
             this.$el.find('input:text').val('');
         },
+
+    _deleteProject: function () {
+        this.collection.reset();
+        this.$el.hide('500', _.bind( 
+            function () { this.remove(); }, this)
+            );
+        
+    },
 
     render: function (model) {
         this.$el.html(this.template(model));

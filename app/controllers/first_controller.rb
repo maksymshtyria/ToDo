@@ -8,6 +8,10 @@ class FirstController < ApplicationController
   		render :template =>'first/first'
   	end
 
+  	def show
+  		render(:text => "[{'done': true, 'order': 3, 'project': 'tt', 'title': 'y'}]") and return
+  		#render :json => {:done => true, :order => 3, :project: "tt", :title: "y"} and return
+  	end
   	#def check_session
 	 #   if session[:current_user] == nil
 	  #      redirect_to(:controller=>'enter',:action =>'index') and return false

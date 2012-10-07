@@ -2,7 +2,7 @@ ToDo::Application.routes.draw do
 
   root :to => 'first#my'
 
-  get '/test' => 'first#my'
+  get '/test' => 'first#show'
 
   get '/db' => 'first#test'
 
