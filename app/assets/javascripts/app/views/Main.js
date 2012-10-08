@@ -2,7 +2,7 @@ GetContext("toDo.Views").Main = Backbone.View.extend({
 
     template: JST["templates/Main"],
 
-    langPack: new toDo.Models.langPack(),  
+    langPack: new toDo.Models.LangPack(),  
 
     className: 'header',
 
@@ -27,7 +27,7 @@ GetContext("toDo.Views").Main = Backbone.View.extend({
 
         lang.set({project : (this.$el.find("#new-todo").val() || data.get('project'))});
 
-        projectView = new toDo.Views.Project().render(lang.toJSON());
+        projectView = new toDo.Views.Project(lang.get('project')).render(lang.toJSON());
          
         $("[name='todoapp']").append( projectView );
         projectView.animate({left: "0px"}, 500);

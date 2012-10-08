@@ -25,6 +25,15 @@ class FirstController < ApplicationController
   	def getProjects
   		render :json => Todo.select(:project).uniq and return
   	end
+
+    def getProject
+      render :json => Todo.where(:project => params[:name]) and return
+    end
+
+    def dropProject
+      Todo.destroy_all(:project => params[:name])
+      render :json => { :status => 200 } and return
+    end
   	#def check_session
 	 #   if session[:current_user] == nil
 	  #      redirect_to(:controller=>'enter',:action =>'index') and return false
