@@ -1,4 +1,4 @@
-GetContext("toDo.Models").oneTask = Backbone.Model.extend({
+GetContext("toDo.Models").OneTask = Backbone.Model.extend({
 
     url: '/test',
         

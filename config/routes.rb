@@ -8,6 +8,10 @@ ToDo::Application.routes.draw do
 
   post '/test' => 'first#create'
 
+  get '/getProject/:name' => 'first#getProject'
+
+  delete '/getProject/:name' => 'first#dropProject'
+
 
   #get :to => 'first#index'
   # The priority is based upon order of creation:

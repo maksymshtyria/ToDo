@@ -9,10 +9,20 @@ GetContext("toDo.Views").Project = Backbone.View.extend({
         "click [name='deleteProject']": "_deleteProject"
     },
 
-    initialize: function() {
+    initialize: function(data) {
         this.collection = new toDo.Collections.TodoList();
         this.collection.on("add", this._addOne, this);
-        this.collection.on('reset', this.collection.deleteModels, this)
+        this.collection.on("reset", this.deleteCollection);
+        this.collection.url = '/getProject/' + data;
+        this.collection.fetch({
+            success: _.bind( function () {
+                _.each(this.collection.models, function (mod){
+                    this._addOne(mod)
+                }, this)  
+            }, this)
+        });
+        
+        //this.collection.on('reset', this.collection.deleteModels, this)
     },
 
     _addOne: function (mod, coll) {
@@ -34,8 +44,9 @@ GetContext("toDo.Views").Project = Backbone.View.extend({
 
     _deleteProject: function () {
         this.collection.reset();
+        this.collection.deleteCollection();
         this.$el.hide('500', _.bind( 
-            function () { this.remove(); }, this)
+            function () { this.remove(); console.log(this)}, this)
             );
         
     },

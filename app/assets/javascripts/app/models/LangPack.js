@@ -1,4 +1,4 @@
-GetContext("toDo.Models").langPack = Backbone.Model.extend({
+GetContext("toDo.Models").LangPack = Backbone.Model.extend({
     initialize: function () {
         this.set(JSON.parse(localStorage.getItem('ru')));
     },

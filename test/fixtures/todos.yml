@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  projectID: 1
-  taskID: 1
-  task: MyString
+  project: 1
+  title: MyString
+  done: false
 
 two:
-  projectID: 1
-  taskID: 1
-  task: MyString
+  project: 1
+  title: MyString
+  done: false

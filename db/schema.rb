@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007162459) do
+ActiveRecord::Schema.define(:version => 20121008140113) do
 
   create_table "todos", :force => true do |t|
-    t.integer  "projectID"
-    t.integer  "taskID"
-    t.string   "task"
+    t.integer  "project"
+    t.string   "title"
+    t.boolean  "done"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

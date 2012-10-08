@@ -1,9 +1,12 @@
 GetContext("toDo.Collections").TodoList = Backbone.Collection.extend({
         
-    model: toDo.Models.oneTask,
+    model: toDo.Models.OneTask,
 
-    initialize: function (url) {
-    	
+    deleteCollection: function () {
+    	$.ajax({
+  		type: "DELETE",
+  		url: this.url
+		});
     },
 
     nextOrder: function () {
