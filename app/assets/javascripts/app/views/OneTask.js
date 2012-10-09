@@ -15,9 +15,12 @@ GetContext("toDo.Views").OneTask = Backbone.View.extend({
     },
 
     initialize : function () {
-        this.model.bind("change:title", this.render, this);
-        this.model.bind("change:done", this.render, this);
-        this.model.save();
+        this.model.bind("change", function () {
+           this.render();
+           this.model.save() 
+        } , this);
+        //this.model.bind("change:done", this.render, this);
+        //this.on('edit', this.model.save, this);
     },
         
     edit: function() {
@@ -38,6 +41,7 @@ GetContext("toDo.Views").OneTask = Backbone.View.extend({
             this.model.set({done : true})
         else
             this.model.set({done : false})
+        this.trigger('edit');
     },
 
     showIm: function () {
@@ -68,13 +72,14 @@ GetContext("toDo.Views").OneTask = Backbone.View.extend({
         });
         this.collection.at(this.model.get("order") + a ).set(temp);
         this.order();
+        this.trigger('edit');
     },
 
     destroy: function () {
         this.model.off();
         this.remove();
+        this.model.url = '/test/'+ this.model.get('id');
         this.model.destroy();
-        /*this.order();*/
     },
 
     order: function (){

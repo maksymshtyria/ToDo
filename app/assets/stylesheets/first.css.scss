@@ -26,6 +26,7 @@
 body{
   background-image: url(bg.jpg);
   overflow-x: hidden;
+  color: rgb(99, 99, 99);
 }
 
 .header {
@@ -78,7 +79,6 @@ body{
           pr{
             left: 10%;
             position: relative;
-            //text-decoration: underline;
             font-style: italic;
           }
         }
@@ -115,7 +115,7 @@ body{
 
     div {
         .done{
-        color: #777777;
+        color: rgb(252, 240, 240);
         text-decoration: line-through;
           }
 

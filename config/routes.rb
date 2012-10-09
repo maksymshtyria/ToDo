@@ -12,6 +12,11 @@ ToDo::Application.routes.draw do
 
   delete '/getProject/:name' => 'first#dropProject'
 
+  put '/test' => 'first#updateTask'
+
+  delete '/test/:id' => 'first#deleteTask'
+
+  
 
   #get :to => 'first#index'
   # The priority is based upon order of creation:

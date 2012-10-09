@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  project: 1
   title: MyString
+  project: MyString
+  order: 1
   done: false
 
 two:
-  project: 1
   title: MyString
+  project: MyString
+  order: 1
   done: false
