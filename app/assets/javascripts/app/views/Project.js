@@ -11,7 +11,13 @@ GetContext("toDo.Views").Project = Backbone.View.extend({
 
     initialize: function(data) {
         this.collection = new toDo.Collections.TodoList();
-        this.collection.on("add", this._addOne, this);
+        this.collection.on("add", function (mod) {
+           this._addOne(mod);
+           mod.save();
+
+        }
+            
+            , this);
         this.collection.on("reset", this.deleteCollection);
         this.collection.url = '/getProject/' + data;
         this.collection.fetch({
@@ -21,11 +27,9 @@ GetContext("toDo.Views").Project = Backbone.View.extend({
                 }, this)  
             }, this)
         });
-        
-        //this.collection.on('reset', this.collection.deleteModels, this)
     },
 
-    _addOne: function (mod, coll) {
+    _addOne: function (mod) {
         if ( mod.isValid() ) {
             this.$el.append( new toDo.Views.OneTask({model: mod, collection: this.collection}).render() );
         };

@@ -16,10 +16,11 @@
 //= require backbone
 //= require_tree ./templates
 //= require app/getContext
+//= require app/Backbone.Validation
+//= require app/Backbone.Validation.Bootstrap
 //= require app/models/Projects
 //= require app/collections/Main
 //= require app/models/LangPack
-//= require app/Backbone.Validation
 //= require app/i18n
 //= require app/models/OneTask
 //= require app/collections/TodoList
